@@ -38,7 +38,7 @@ class TricksService {
 
     async remove(id, creatorId) {
         const original = await this.getById(id)
-        if (original.accountId.toString() !== creatorId) {
+        if (original.creatorId.toString() !== creatorId) {
             throw new BadRequest('Unauthorized')
         }
         await dbContext.Tricks.findOneAndRemove({ _id: id, creatorId: creatorId })

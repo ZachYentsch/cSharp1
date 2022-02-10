@@ -6,14 +6,21 @@
       </div>
       <div class="col-10">
         <div class="bg-secondary d-flex justify-content-between">
+          <h2 class="selectable" @click="getAllTricks()">All</h2>
           <h2 class="selectable" @click="filterTricks('Aerial')">Aerial</h2>
           <h2 class="selectable" @click="filterTricks('Rail')">Rail</h2>
           <h2 class="selectable" @click="filterTricks('Surface')">Surface</h2>
           <h2 class="selectable" @click="filterTricks('Halfpipe')">Halfpipe</h2>
         </div>
-      </div>
-      <div class="col-md-3" v-for="t in filteredTricks" :key="t.id">
-        <Trick :trick="t" />
+        <div class="row mt-5">
+          <Trick
+            class="col-md-3 d-flex justify-content-center mx-3"
+            v-for="t in filteredTricks"
+            :key="t.id"
+            :trick="t"
+          >
+          </Trick>
+        </div>
       </div>
     </div>
   </div>
@@ -73,6 +80,13 @@ export default {
         let filteredTricks = AppState.tricks.filter(t => t.type == type)
         logger.log(filteredTricks)
         AppState.filteredTricks = filteredTricks
+      },
+      async getAllTricks() {
+        try {
+          await tricksService.getAllTricks()
+        } catch (error) {
+          logger.log(error.message)
+        }
       },
       async login() {
         AuthService.loginWithPopup()
