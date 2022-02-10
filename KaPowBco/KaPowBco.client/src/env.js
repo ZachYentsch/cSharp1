@@ -5,7 +5,7 @@ export const domain = 'dev-9kkxugcf.us.auth0.com'
 export const clientId = 'CgUncOqMXaMkSdmy2ODY9E1ywcAbLUdg'
 export const audience = 'https://.KaPowBCO.com'
 
-const firebaseConfig = {
+export const firebaseConfig = {
     apiKey: "AIzaSyDlQKrwnPWRp1AN6iVlf6_-KBEtWuZgfQw",
     authDomain: "kapoww-dfa96.firebaseapp.com",
     projectId: "kapoww-dfa96",

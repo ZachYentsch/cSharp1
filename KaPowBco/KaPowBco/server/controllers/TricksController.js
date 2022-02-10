@@ -34,7 +34,7 @@ export class TricksController extends BaseController {
 
     async create(req, res, next) {
         try {
-            req.body.accountId = req.userInfo.id
+            req.body.creatorId = req.userInfo.id
             const createdTrick = await tricksService.create(req.body)
             return res.send(createdTrick)
         } catch (error) {

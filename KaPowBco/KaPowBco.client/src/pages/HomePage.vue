@@ -6,18 +6,14 @@
       </div>
       <div class="col-10">
         <div class="bg-secondary d-flex justify-content-between">
-          <h2 class="selectable" @click="filteredTricks('Aerial')">Aerial</h2>
-          <h2 class="selectable" @click="filteredTricks('Rail')">Rail</h2>
-          <h2 class="selectable" @click="filteredTricks('Surface')">Surface</h2>
-          <h2 class="selectable" @click="filteredTricks('Halfpipe')">
-            Halfpipe
-          </h2>
+          <h2 class="selectable" @click="filterTricks('Aerial')">Aerial</h2>
+          <h2 class="selectable" @click="filterTricks('Rail')">Rail</h2>
+          <h2 class="selectable" @click="filterTricks('Surface')">Surface</h2>
+          <h2 class="selectable" @click="filterTricks('Halfpipe')">Halfpipe</h2>
         </div>
       </div>
-      <div class="row">
-        <div class="col-md-3" v-for="t in filteredTricks" :key="t.id">
-          <Trick :trick="t" />
-        </div>
+      <div class="col-md-3" v-for="t in filteredTricks" :key="t.id">
+        <Trick :trick="t" />
       </div>
     </div>
   </div>
@@ -47,10 +43,9 @@
 </template>
 
 <script>
-import { computed, ref } from '@vue/reactivity'
+import { onMounted, computed, ref } from '@vue/runtime-core'
 import { AppState } from '../AppState'
 import { AuthService } from '../services/AuthService'
-import { onMounted } from '@vue/runtime-core'
 import { tricksService } from '../services/TricksService'
 import { logger } from '../utils/Logger'
 import Pop from '../utils/Pop'
@@ -71,9 +66,10 @@ export default {
     return {
       user: computed(() => AppState.user),
       account: computed(() => AppState.account),
-      tricks: computed(() => AppState.filteredTricks),
+      filteredTricks: computed(() => AppState.filteredTricks),
+      trick: computed(() => AppState.tricks),
 
-      filteredTricks(type) {
+      filterTricks(type) {
         let filteredTricks = AppState.tricks.filter(t => t.type == type)
         logger.log(filteredTricks)
         AppState.filteredTricks = filteredTricks
@@ -99,7 +95,7 @@ h1 {
   transform-origin: bottom;
   height: 600px;
   width: 50px;
-  left: 700px;
+  left: 600px;
   top: 100px;
   position: absolute;
 }

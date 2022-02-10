@@ -23,11 +23,10 @@
       />
     </div>
     <div class="form-group">
-      <label for="coverImg">Image:</label>
+      <label for="contentUrl">Content:</label>
       <input
-        type="text"
+        type="file"
         placeholder="Url..."
-        v-model="editable.contentUrl"
         class="form-control"
         id="contentUrl"
         required
@@ -43,8 +42,8 @@
         class="form-control"
       >
         <option disabled selected value="">Choose a Post Type</option>
-        <option>Image</option>
-        <option>Video</option>
+        <option>image</option>
+        <option>video</option>
       </select>
     </div>
     <div class="form-group">
@@ -97,7 +96,7 @@ import { ref, watchEffect } from '@vue/runtime-core'
 import Pop from '../utils/Pop'
 import { tricksService } from '../services/TricksService'
 import { Modal } from 'bootstrap'
-import { router } from '../router'
+import { firebaseService } from '../services/FireBaseService'
 import { logger } from '../utils/Logger'
 export default {
   setup() {
