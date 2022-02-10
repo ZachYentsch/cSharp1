@@ -1,5 +1,6 @@
 import { Auth0Provider } from '@bcwdev/auth0provider'
 import { accountService } from '../services/AccountService'
+import { followersService } from '../services/FollowersService'
 import BaseController from '../utils/BaseController'
 
 export class AccountController extends BaseController {
@@ -8,11 +9,41 @@ export class AccountController extends BaseController {
     this.router
       .use(Auth0Provider.getAuthorizedUserInfo)
       .get('', this.getUserAccount)
+      .get('/following', this.getFollowing)
+      .get('followers', this.getFollowers)
+      .put('', this.updateAccount)
   }
 
   async getUserAccount(req, res, next) {
     try {
       const account = await accountService.getAccount(req.userInfo)
+      res.send(account)
+    } catch (error) {
+      next(error)
+    }
+  }
+
+  async getFollowing(req, res, next) {
+    try {
+      const following = await followersService.getFollowing(req.userInfo.id)
+      return res.send(following)
+    } catch (error) {
+      next(error)
+    }
+  }
+
+  async getFollowers(req, res, next) {
+    try {
+      const followers = await followersService.getMyFollowers(req.userInfo.id)
+      return res.send(followers)
+    } catch (error) {
+      next(error)
+    }
+  }
+
+  async updateAccount(req, res, next) {
+    try {
+      const account = await accountService.updateAccount(req.userInfo, req.body)
       res.send(account)
     } catch (error) {
       next(error)
