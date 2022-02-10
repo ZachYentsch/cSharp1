@@ -65,7 +65,9 @@
   </div>
   <Modal id="createPost">
     <template #modal-title>Create Post</template>
-    <template #modal-body> </template>
+    <template #modal-body>
+      <CreateTrick />
+    </template>
   </Modal>
 </template>
 

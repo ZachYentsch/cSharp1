@@ -1,5 +1,5 @@
 <template>
-  <form @submit.prevent="submitTower()">
+  <form @submit.prevent="createTrick()">
     <div class="form-group">
       <label for="name">Name:</label>
       <input
@@ -16,9 +16,9 @@
       <input
         type="text"
         placeholder="Description..."
-        v-model="editable.description"
+        v-model="editable.steps"
         class="form-control"
-        id="description"
+        id="steps"
         required
       />
     </div>
@@ -26,47 +26,41 @@
       <label for="coverImg">Image:</label>
       <input
         type="text"
-        placeholder="Image Url..."
-        v-model="editable.coverImg"
+        placeholder="Url..."
+        v-model="editable.contentUrl"
         class="form-control"
-        id="coverImg"
+        id="contentUrl"
         required
       />
     </div>
     <div class="form-group">
-      <label for="location">Location</label>
+      <label for="type">Type of Content:</label>
+      <select
+        v-model="editable.contentType"
+        name="contentTpe"
+        id="contentType"
+        required
+        class="form-control"
+      >
+        <option disabled selected value="">Choose a Post Type</option>
+        <option>Image</option>
+        <option>Video</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="difficulty">Difficulty</label>
       <input
-        type="text"
-        placeholder="Location..."
-        v-model="editable.location"
+        min="1"
+        max="10"
+        type="number"
+        v-model="editable.difficulty"
         class="form-control"
-        id="location"
+        id="difficulty"
         required
       />
     </div>
     <div class="form-group">
-      <label for="capacity">Capacity:</label>
-      <input
-        type="Number"
-        min="10"
-        v-model="editable.capacity"
-        class="form-control"
-        id="capacity"
-        required
-      />
-    </div>
-    <div class="form-group">
-      <label for="startDate">Start Date:</label>
-      <input
-        type="Date"
-        v-model="editable.startDate"
-        class="form-control"
-        id="startDate"
-        required
-      />
-    </div>
-    <div class="form-group">
-      <label for="type">Type of Event:</label>
+      <label for="type">Type of Trick:</label>
       <select
         v-model="editable.type"
         name="type"
@@ -74,11 +68,11 @@
         required
         class="form-control"
       >
-        <option disabled selected value="">Choose an Event Type</option>
-        <option>sport</option>
-        <option>digital</option>
-        <option>concert</option>
-        <option>convention</option>
+        <option disabled selected value="">Choose a Trick Type</option>
+        <option>Aerial</option>
+        <option>Rail</option>
+        <option>Surface</option>
+        <option>Halfpipe</option>
       </select>
     </div>
     <div class="d-flex justify-content-between my-3">
@@ -100,23 +94,36 @@
 
 <script>
 import { ref, watchEffect } from '@vue/runtime-core'
-import { TowerEvent } from '../models/TowerEvent'
 import Pop from '../utils/Pop'
 import { tricksService } from '../services/TricksService'
 import { Modal } from 'bootstrap'
 import { router } from '../router'
 import { logger } from '../utils/Logger'
 export default {
-  props: {
-    trick: { type: Object, default: () => new Trick() }
-  },
-  setup(props) {
+  setup() {
     const editable = ref({})
     watchEffect(() => {
-      editable.value = { ...props.trick }
+      editable.value = {}
     })
     return {
       editable,
+      async createTrick() {
+        try {
+          const form = event.target
+          const content = form.contentUrl
+          const file = contentUrl.files[0]
+          Pop.toast("Created Successfully")
+          if (!file) { return }
+          const url = await firebaseService.uploadFile(file, editable.value)
+          editable.value.contentUrl = url
+          await tricksService.createTrick(editable.value)
+          Modal.getOrCreateInstance(document.getElementById('createTrick')).hide()
+          Modal.getOrCreateInstance(document.getElementById('trickDetails'))
+        } catch (error) {
+          Pop.toast(error.message, 'error')
+          logger.log(error.message)
+        }
+      }
     }
   }
 }
