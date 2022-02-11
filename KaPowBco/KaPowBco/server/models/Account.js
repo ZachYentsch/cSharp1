@@ -7,8 +7,8 @@ export const AccountSchema = new Schema(
     email: { type: String, lowercase: true, unique: true },
     name: { type: String, required: true },
     picture: { type: String },
-    bannerImg: { type: String },
     // NOTE If you wish to add additional properties do so here\
+    bannerImg: { type: String },
     location: { type: String },
     biography: { type: String },
     facebook: { type: String },
@@ -25,8 +25,18 @@ export const AccountSchema = new Schema(
 export const ProfileSchema = new Schema(
   {
     name: { type: String, required: true },
-    picture: { type: String }
+    picture: { type: String },
     // NOTE if you want to make properties from the account public put them here
+    bannerImg: { type: String },
+    location: { type: String },
+    biography: { type: String },
+    facebook: { type: String },
+    youtube: { type: String },
+    twitter: { type: String },
+    instagram: { type: String },
+    isAvailable: { type: Boolean, default: false },
+    isTrainer: { type: Boolean, default: false }
+
   },
   { timestamps: true, toJSON: { virtuals: true } }
 )

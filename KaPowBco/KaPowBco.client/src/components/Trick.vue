@@ -23,6 +23,10 @@
       <p class="card-text">
         {{ trick.steps }}
       </p>
+      <div class="card-text selectable" @click="goToProfile()">
+        <img :src="trick.creator.picture" alt="" height="40" />
+        <p>{{ trick.creator.name }}</p>
+      </div>
     </div>
   </div>
   <Modal :id="`trickDetails-${trick.id}`">
@@ -35,14 +39,25 @@
 
 
 <script>
-import { onMounted } from '@vue/runtime-core'
+import { computed } from '@vue/runtime-core'
 import { AppState } from '../AppState'
+import { useRouter } from 'vue-router'
 export default {
   props: {
     trick: { type: Object, required: true }
   },
-  setup() {
+  setup(props) {
+    const router = useRouter()
     return {
+      account: computed(() => AppState.account),
+      router,
+
+      async goToProfile() {
+        router.push({
+          name: "Profile",
+          params: { id: props.trick.creator.id }
+        })
+      }
     }
   }
 }

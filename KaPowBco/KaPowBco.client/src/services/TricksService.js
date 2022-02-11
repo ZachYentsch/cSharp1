@@ -33,6 +33,12 @@ class TricksService {
         logger.log('Removed Trick', res.data)
         AppState.tricks = AppState.tricks.filter(t => t.id != t.id)
     }
+
+    async getMyTricks() {
+        const res = await api.get('account/tricks')
+        logger.log('My tricks', res.data)
+        AppState.myTricks = res.data
+    }
 }
 
 export const tricksService = new TricksService()

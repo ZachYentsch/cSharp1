@@ -37,7 +37,17 @@ async function mergeSubsIfNeeded(account, user) {
 function sanitizeBody(body) {
   const writable = {
     name: body.name,
-    picture: body.picture
+    picture: body.picture,
+    bannerImg: body.bannerImg,
+    location: body.location,
+    biography: body.biography,
+    facebook: body.facebook,
+    youtube: body.youtube,
+    twitter: body.twitter,
+    instagram: body.instagram,
+    isAvailable: body.isAvailable,
+    isTrainer: body.isTrainer
+
   }
   return writable
 }

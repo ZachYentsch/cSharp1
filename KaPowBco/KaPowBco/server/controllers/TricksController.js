@@ -23,6 +23,8 @@ export class TricksController extends BaseController {
         }
     }
 
+
+
     async getById(req, res, next) {
         try {
             const trickId = await tricksService.getById(req.params.id)

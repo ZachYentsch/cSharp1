@@ -2,6 +2,10 @@ import { BadRequest } from "@bcwdev/auth0provider/lib/Errors";
 import { dbContext } from "../db/DbContext"
 
 class TricksService {
+    async getByCreatorId(id) {
+        const myTricks = await dbContext.Tricks.find({ creatorId: id }).populate('creator', 'name picture')
+        return myTricks
+    }
     async getAll() {
         const tricks = await dbContext.Tricks.find().populate('creator', 'name picture')
         return tricks

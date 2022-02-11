@@ -1,5 +1,5 @@
 <template>
-  <form @submit.prevent="createTrick()">
+  <form @submit.prevent="editProf()">
     <div class="form-group">
       <label for="name">Name:</label>
       <input
@@ -24,7 +24,8 @@
       <label for="picture">Picture:</label>
       <input
         type="text"
-        placeholder="Url..."
+        v-model="editable.picture"
+        placeholder="Profile Picture Url..."
         class="form-control"
         id="picture"
       />
@@ -33,7 +34,8 @@
       <label for="bannerImg">Profile Picture:</label>
       <input
         type="text"
-        placeholder="Url..."
+        placeholder="BannerPicture Url..."
+        v-model="editable.bannerImg"
         class="form-control"
         id="bannerImg"
       />
@@ -41,6 +43,7 @@
     <div class="form-group">
       <label for="Facebook">Facebook</label>
       <input
+        placeholder="Facebook..."
         type="text"
         v-model="editable.facebook"
         class="form-control"
@@ -50,6 +53,7 @@
     <div class="form-group">
       <label for="instagram">Instagram</label>
       <input
+        placeholder="Instagram..."
         type="text"
         v-model="editable.instagram"
         class="form-control"
@@ -59,6 +63,7 @@
     <div class="form-group">
       <label for="youtube">Youtube</label>
       <input
+        placeholder="Youtube..."
         type="text"
         v-model="editable.youtube"
         class="form-control"
@@ -69,6 +74,7 @@
       <label for="twitter">Twitter</label>
       <input
         type="text"
+        placeholder="Twitter..."
         v-model="editable.twitter"
         class="form-control"
         id="twitter"
@@ -78,6 +84,7 @@
       <label for="isAvailable">Available:</label>
       <select
         v-model="editable.isAvailable"
+        placeholder="Are You Available..."
         name="isAvailable"
         id="isAvailable"
         class="form-control"
@@ -90,6 +97,7 @@
     <div class="form-group">
       <label for="isTrainer">Trainer Profile:</label>
       <select
+        placeholder="Trainer Profile..."
         v-model="editable.isTrainer"
         name="isTrainer"
         id="isTrainer"
@@ -120,10 +128,9 @@
 <script>
 import { ref, watchEffect } from '@vue/runtime-core'
 import Pop from '../utils/Pop'
-import { tricksService } from '../services/TricksService'
 import { Modal } from 'bootstrap'
-import { firebaseService } from '../services/FireBaseService'
 import { logger } from '../utils/Logger'
+import { accountService } from '../services/AccountService'
 export default {
   setup() {
     const editable = ref({})
@@ -132,18 +139,10 @@ export default {
     })
     return {
       editable,
-      async createTrick() {
+      async editProf() {
         try {
-          const form = event.target
-          const content = form.contentUrl
-          const file = contentUrl.files[0]
-          Pop.toast("Created Successfully")
-          if (!file) { return }
-          const url = await firebaseService.uploadFile(file, editable.value)
-          editable.value.contentUrl = url
-          await tricksService.createTrick(editable.value)
-          Modal.getOrCreateInstance(document.getElementById('createTrick')).hide()
-          Modal.getOrCreateInstance(document.getElementById('trickDetails'))
+          await accountService.editAccount(editable.value)
+          Modal.getOrCreateInstance(document.getElementById('editProfile')).hide()
         } catch (error) {
           Pop.toast(error.message, 'error')
           logger.log(error.message)
