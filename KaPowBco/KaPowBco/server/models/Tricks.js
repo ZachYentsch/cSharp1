@@ -10,6 +10,7 @@ export const TricksSchema = new Schema(
         type: { type: String, enum: ['Aerial', 'Rail', 'Surface', 'Halfpipe'], required: true },
         steps: { type: String, required: true },
         difficulty: { type: Number, min: 0, max: 10 },
+        location: { type: { type: String, default: 'Point' }, coordinates: { type: [Number], default: [0, 0] } }
     },
     { timestamps: true, toJSON: { virtuals: true } })
 
