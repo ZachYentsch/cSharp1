@@ -9,7 +9,7 @@ export const AccountSchema = new Schema(
     picture: { type: String },
     // NOTE If you wish to add additional properties do so here\
     bannerImg: { type: String },
-    location: { type: String },
+    location: { type: { type: String, default: 'Point' }, coordinates: { type: [Number], default: [0, 0] } },
     biography: { type: String },
     facebook: { type: String },
     youtube: { type: String },

@@ -4,7 +4,7 @@ const Schema = mongoose.Schema
 export const CoachingSchema = new Schema({
     trainerId: { type: Schema.Types.ObjectId, required: true, ref: 'Account' },
     learnerId: { type: Schema.Types.ObjectId, required: true, ref: 'Account' },
-    type: { type: String, enum: ['Aerial', 'Rail', 'Surface', 'Halfpipe'], required: true },
+    type: { type: String, enum: ['Aerial', 'Rail', 'Surface', 'Halfpipe'] },
     description: { type: String, required: true },
     payment: { type: Number },
     paymentRecieved: { type: Boolean, default: false },

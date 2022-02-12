@@ -9,8 +9,6 @@ export const AppState = reactive({
   myTricks: [],
   filteredTricks: [],
   activeTrick: {},
-  followers: [],
-  activeFollower: {},
   coachings: [],
   activeCoaching: {},
 })

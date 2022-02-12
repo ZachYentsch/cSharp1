@@ -9,7 +9,7 @@ export const TricksSchema = new Schema(
         contentType: { type: String, enum: ['video', 'image'] },
         type: { type: String, enum: ['Aerial', 'Rail', 'Surface', 'Halfpipe'], required: true },
         steps: { type: String, required: true },
-        difficulty: { type: Number, min: 0, max: 10 }
+        difficulty: { type: Number, min: 0, max: 10 },
     },
     { timestamps: true, toJSON: { virtuals: true } })
 
