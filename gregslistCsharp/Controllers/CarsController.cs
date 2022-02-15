@@ -43,12 +43,43 @@ namespace gregslistCsharp.Controllers
             }
         }
 
+        // NOTE CREATE
         [HttpPost]
         public ActionResult<Car> create([FromBody] Car newCar)
         {
             try
             {
                 return Ok(_cs.Create(newCar));
+            }
+            catch (System.Exception e)
+            {
+                return new BadRequestObjectResult(e.Message);
+            }
+        }
+
+        // NOTE EDIT
+        [HttpPut("{carId}")]
+        public ActionResult<Car> edit([FromBody] Car editedCar, string carId)
+        {
+            try
+            {
+                editedCar.Id = carId;
+                Car updatedCar = _cs.Edit(editedCar, carId);
+                return Ok(updatedCar);
+            }
+            catch (System.Exception e)
+            {
+                return new BadRequestObjectResult(e.Message);
+            }
+        }
+
+        // NOTE DELETE
+        [HttpDelete("{carId}")]
+        public ActionResult<Car> delete(string carId)
+        {
+            try
+            {
+                return Ok(_cs.Remove(carId));
             }
             catch (System.Exception e)
             {
