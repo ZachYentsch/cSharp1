@@ -4,12 +4,13 @@ namespace gregslistCsharp.Models
 {
     public class Car
     {
-        public Car(string make, string model, string description, int year, int price)
+        public Car(string make, string model, string description, string imgUrl, int year, int price)
         {
             Id = Guid.NewGuid().ToString();
             Make = make;
             Model = model;
             Description = description;
+            ImgUrl = imgUrl;
             Year = year;
             Price = price;
         }
@@ -19,6 +20,9 @@ namespace gregslistCsharp.Models
         public string? Make { get; set; }
         public string? Model { get; set; }
         public string? Description { get; set; }
+
+        public string? ImgUrl { get; set; }
+
 
         [Required]
         [Range(1904, 2023)]
