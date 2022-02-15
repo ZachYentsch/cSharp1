@@ -1,0 +1,15 @@
+C:\source\codeworks\csharp1\bin\Debug\net6.0\csharp1.exe
+C:\source\codeworks\csharp1\bin\Debug\net6.0\csharp1.deps.json
+C:\source\codeworks\csharp1\bin\Debug\net6.0\csharp1.runtimeconfig.json
+C:\source\codeworks\csharp1\bin\Debug\net6.0\csharp1.dll
+C:\source\codeworks\csharp1\bin\Debug\net6.0\ref\csharp1.dll
+C:\source\codeworks\csharp1\bin\Debug\net6.0\csharp1.pdb
+C:\source\codeworks\csharp1\obj\Debug\net6.0\csharp1.csproj.AssemblyReference.cache
+C:\source\codeworks\csharp1\obj\Debug\net6.0\csharp1.GeneratedMSBuildEditorConfig.editorconfig
+C:\source\codeworks\csharp1\obj\Debug\net6.0\csharp1.AssemblyInfoInputs.cache
+C:\source\codeworks\csharp1\obj\Debug\net6.0\csharp1.AssemblyInfo.cs
+C:\source\codeworks\csharp1\obj\Debug\net6.0\csharp1.csproj.CoreCompileInputs.cache
+C:\source\codeworks\csharp1\obj\Debug\net6.0\csharp1.dll
+C:\source\codeworks\csharp1\obj\Debug\net6.0\ref\csharp1.dll
+C:\source\codeworks\csharp1\obj\Debug\net6.0\csharp1.pdb
+C:\source\codeworks\csharp1\obj\Debug\net6.0\csharp1.genruntimeconfig.cache
