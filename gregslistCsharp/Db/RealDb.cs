@@ -18,5 +18,12 @@ namespace gregslistCsharp.Db
             new House("1 Lodge St", "Asheville", "North Carolina", 35, 43, 178926),
             new House("22907 E 8th Ave", "Liberty Lake", "Washington", 6, 7, 32775),
         };
+
+        public static List<Job> Jobs { get; set; } = new List<Job>()
+        {
+            new Job("CEO", "RzR International", "Bossman", 40, 2000000),
+            new Job("Vice President Of Sales", "Apple", "Movin on up", 80, 20000),
+            new Job("Sous Chef", "Barbacoa", "Makes yummy food", 75, 80000),
+        };
     }
 }
