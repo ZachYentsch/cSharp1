@@ -10,6 +10,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddTransient<CarsService>();
 builder.Services.AddTransient<HousesService>();
+builder.Services.AddTransient<JobsService>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

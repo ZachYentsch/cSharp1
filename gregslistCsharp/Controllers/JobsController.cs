@@ -58,7 +58,7 @@ namespace gregslistCsharp.Controllers
         }
 
         // NOTE EDIT
-        [HttpPut("{houseId}")]
+        [HttpPut("{jobId}")]
         public ActionResult<Job> edit([FromBody] Job editedJob, string jobId)
         {
             try
