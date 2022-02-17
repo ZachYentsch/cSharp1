@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\source\\codeworks\\csharp1\\csharp1.csproj": {}
+    "C:\\source\\codeworks\\cSharpmorning\\cSharpmorning.csproj": {}
   },
   "projects": {
-    "C:\\source\\codeworks\\csharp1\\csharp1.csproj": {
+    "C:\\source\\codeworks\\cSharpmorning\\cSharpmorning.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\source\\codeworks\\csharp1\\csharp1.csproj",
-        "projectName": "csharp1",
-        "projectPath": "C:\\source\\codeworks\\csharp1\\csharp1.csproj",
+        "projectUniqueName": "C:\\source\\codeworks\\cSharpmorning\\cSharpmorning.csproj",
+        "projectName": "cSharpmorning",
+        "projectPath": "C:\\source\\codeworks\\cSharpmorning\\cSharpmorning.csproj",
         "packagesPath": "C:\\Users\\zachy\\.nuget\\packages\\",
-        "outputPath": "C:\\source\\codeworks\\csharp1\\obj\\",
+        "outputPath": "C:\\source\\codeworks\\cSharpmorning\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\zachy\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -37,12 +37,6 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
-          "dependencies": {
-            "Swashbuckle.AspNetCore": {
-              "target": "Package",
-              "version": "[6.2.3, )"
-            }
-          },
           "imports": [
             "net461",
             "net462",
@@ -54,9 +48,6 @@
           "assetTargetFallback": true,
           "warn": true,
           "frameworkReferences": {
-            "Microsoft.AspNetCore.App": {
-              "privateAssets": "none"
-            },
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }

@@ -1,0 +1,15 @@
+C:\source\codeworks\cSharpmorning\bin\Debug\net6.0\cSharpmorning.exe
+C:\source\codeworks\cSharpmorning\bin\Debug\net6.0\cSharpmorning.deps.json
+C:\source\codeworks\cSharpmorning\bin\Debug\net6.0\cSharpmorning.runtimeconfig.json
+C:\source\codeworks\cSharpmorning\bin\Debug\net6.0\cSharpmorning.dll
+C:\source\codeworks\cSharpmorning\bin\Debug\net6.0\ref\cSharpmorning.dll
+C:\source\codeworks\cSharpmorning\bin\Debug\net6.0\cSharpmorning.pdb
+C:\source\codeworks\cSharpmorning\obj\Debug\net6.0\cSharpmorning.csproj.AssemblyReference.cache
+C:\source\codeworks\cSharpmorning\obj\Debug\net6.0\cSharpmorning.GeneratedMSBuildEditorConfig.editorconfig
+C:\source\codeworks\cSharpmorning\obj\Debug\net6.0\cSharpmorning.AssemblyInfoInputs.cache
+C:\source\codeworks\cSharpmorning\obj\Debug\net6.0\cSharpmorning.AssemblyInfo.cs
+C:\source\codeworks\cSharpmorning\obj\Debug\net6.0\cSharpmorning.csproj.CoreCompileInputs.cache
+C:\source\codeworks\cSharpmorning\obj\Debug\net6.0\cSharpmorning.dll
+C:\source\codeworks\cSharpmorning\obj\Debug\net6.0\ref\cSharpmorning.dll
+C:\source\codeworks\cSharpmorning\obj\Debug\net6.0\cSharpmorning.pdb
+C:\source\codeworks\cSharpmorning\obj\Debug\net6.0\cSharpmorning.genruntimeconfig.cache
